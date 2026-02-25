@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Builder - Final Proof</title>
+    <link rel="stylesheet" href="../../index.css">
+    <style>
+        .disabled-btn {
+            opacity: 0.5;
+            cursor: not-allowed !important;
+        }
+        .proof-data-item {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .proof-status-dot {
+            display: inline-block;
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .status-done { background-color: var(--success-color); }
+        .status-pending { background-color: var(--warning-color); }
+    </style>
+    <script>
+        const CURRENT_STEP = 9;
+        const IS_PROOF = true;
+    </script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="project-name">AI Resume Builder</div>
+            <div class="progress-indicator">Final Proof</div>
+            <div class="status-badge status-in-progress">Ready to Ship</div>
+        </header>
+
+        
+        <section class="context-header">
+            <h1>Final Project Proof</h1>
+            <p class="subtext">Verify all 8 steps are complete and submit final artifacts.</p>
+        </section>
+
+        <main class="main-content">
+            <div class="primary-workspace">
+                <div class="card">
+                    <h2>Step Completion Status</h2>
+                    <div id="proof-status-list">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+                
+                <div class="card" style="margin-top: 24px;">
+                    <h2>Final Deployment Details</h2>
+                    <div class="form-group">
+                        <label>Lovable Project Link</label>
+                        <input type="text" id="final-lovable-link" class="input-field" placeholder="https://lovable.dev/...">
+                    </div>
+                    <div class="form-group">
+                        <label>GitHub Repository</label>
+                        <input type="text" id="final-github-link" class="input-field" placeholder="https://github.com/...">
+                    </div>
+                    <div class="form-group">
+                        <label>Live Deployment URL</label>
+                        <input type="text" id="final-deploy-link" class="input-field" placeholder="https://...">
+                    </div>
+                    <button class="button button-primary" id="copy-final-btn" style="margin-top: 16px;">Copy Final Submission</button>
+                </div>
+            </div>
+            
+            <aside class="secondary-panel">
+                <div class="panel-card">
+                    <h3>Submission Rules</h3>
+                    <p>Ensure all endpoints are publicly accessible before final submission.</p>
+                    <button class="button button-secondary" onclick="window.location.href='../08-ship/'">Back to Ship Step</button>
+                </div>
+            </aside>
+        </main>
+
+
+    </div>
+    <script src="../app.js"></script>
+</body>
+</html>

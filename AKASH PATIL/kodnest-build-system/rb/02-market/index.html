@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Builder - Market Validation</title>
+    <link rel="stylesheet" href="../../index.css">
+    <style>
+        .disabled-btn {
+            opacity: 0.5;
+            cursor: not-allowed !important;
+        }
+        .proof-data-item {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .proof-status-dot {
+            display: inline-block;
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .status-done { background-color: var(--success-color); }
+        .status-pending { background-color: var(--warning-color); }
+    </style>
+    <script>
+        const CURRENT_STEP = 2;
+        const IS_PROOF = false;
+    </script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="project-name">AI Resume Builder</div>
+            <div class="progress-indicator">Project 3 — Step 2 of 8</div>
+            <div class="status-badge status-in-progress">In Progress</div>
+        </header>
+
+        
+        <!-- Context Header -->
+        <section class="context-header">
+            <h1>Market Validation</h1>
+            <p class="subtext">Define and construct the Market Validation phase of the AI Resume Builder.</p>
+        </section>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Primary Workspace -->
+            <div class="primary-workspace">
+                <div class="card">
+                    <h2>Artifact Submission</h2>
+                    <p class="text-block">Upload or link your verified artifact for the Market Validation phase before proceeding.</p>
+                    
+                    <div class="form-group">
+                        <label for="artifact-input">Artifact URL / Proof</label>
+                        <input type="text" id="artifact-input" placeholder="Paste artifact link here..." class="input-field">
+                    </div>
+                     <div class="form-group">
+                        <button class="button button-primary" id="save-artifact-btn">Save Artifact</button>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top: 24px; display: flex; justify-content: space-between;">
+                    <button class="button button-secondary" onclick="window.location.href='../01-problem/'" >Back</button>
+                    <button class="button button-primary disabled-btn" id="next-step-btn" data-next="../03-architecture/" disabled>Next Step</button>
+                </div>
+            </div>
+
+            <!-- Secondary Panel -->
+            <aside class="secondary-panel">
+                <div class="panel-card">
+                    <h3>AI Prompt Details</h3>
+                    <p>Use the following prompt to guide your logic generation.</p>
+                    
+                    <div class="prompt-box">
+                        <textarea class="input-field" rows="4" readonly>Build the Market Validation rules for the AI Resume builder. Act as a senior engineer.</textarea>
+                        <button class="button button-secondary button-small" onclick="navigator.clipboard.writeText('Build the Market Validation rules for the AI Resume builder. Act as a senior engineer.')">Copy</button>
+                    </div>
+
+                    <div class="action-stack">
+                        <button class="button button-secondary">Build in Lovable</button>
+                        <button class="button button-primary">It Worked</button>
+                        <button class="button button-secondary" style="border-color: var(--accent-color); color: var(--accent-color);">Error</button>
+                        <button class="button button-secondary">Add Screenshot</button>
+                    </div>
+                </div>
+            </aside>
+        </main>
+        
+        <!-- Standard Proof Footer -->
+        <footer class="proof-footer">
+            <div class="proof-checklist">
+                <div class="proof-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox"> UI Built
+                    </label>
+                    <input type="text" class="proof-input" placeholder="Paste proof URL or screenshot link...">
+                </div>
+                <div class="proof-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox"> Logic Working
+                    </label>
+                    <input type="text" class="proof-input" placeholder="Paste proof URL or screenshot link...">
+                </div>
+                <div class="proof-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox"> Test Passed
+                    </label>
+                    <input type="text" class="proof-input" placeholder="Paste CI/CD pipeline link...">
+                </div>
+                <div class="proof-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox"> Deployed
+                    </label>
+                    <input type="text" class="proof-input" placeholder="Paste live deployment URL...">
+                </div>
+            </div>
+        </footer>
+    
+
+    </div>
+    <script src="../app.js"></script>
+</body>
+</html>

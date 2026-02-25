@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Project Prompts - KodNest Premium Build System</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        .project-section {
+            background-color: var(--white);
+            border-radius: var(--radius-md);
+            padding: var(--space-40);
+            margin-bottom: var(--space-64);
+            border: 2px solid var(--border-color);
+        }
+
+        .project-header {
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: var(--space-16);
+            margin-bottom: var(--space-40);
+        }
+
+        .project-header h2 {
+            font-size: 32px;
+            color: var(--accent-color);
+        }
+
+        .step-container {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .step-container:last-child {
+            border-bottom: none;
+        }
+
+        .prompt-box {
+            margin-top: 16px;
+        }
+
+        textarea.input-field {
+            width: 100%;
+            resize: vertical;
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Top Bar -->
+        <header class="top-bar" style="position: sticky; top: 0; z-index: 100;">
+            <div class="project-name">KodNest Premium Build System</div>
+            <div class="progress-indicator">All Projects Master Track</div>
+            <div class="status-badge status-shipped">Master Link</div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content" style="flex-direction: column; max-width: 1200px; margin: 0 auto; width: 100%;">
+
+            <!-- Context Header -->
+            <section class="context-header" style="padding: 24px 0 40px;">
+                <h1>All Projects Master Track</h1>
+                <p class="subtext">The complete set of 8-step prompts for Job Notification Tracker, Placement Readiness
+                    Platform, and AI Resume Builder.</p>
+            </section>
+
+            <!-- Projects Generator -->
+            <div id="projects-wrapper"></div>
+
+        </main>
+    </div>
+
+    <script>
+        const phases = [
+            { step: 1, title: 'Problem Discovery' },
+            { step: 2, title: 'Market Validation' },
+            { step: 3, title: 'Architecture' },
+            { step: 4, title: 'High Level Design' },
+            { step: 5, title: 'Low Level Design' },
+            { step: 6, title: 'Build Core Engine' },
+            { step: 7, title: 'Testing' },
+            { step: 8, title: 'Ship & Deploy' }
+        ];
+
+        const projects = [
+            { id: 'jnt', name: 'Job Notification Tracker', short: 'Job Notification Tracker' },
+            { id: 'prp', name: 'Placement Readiness Platform', short: 'Placement Readiness Platform' },
+            { id: 'arb', name: 'AI Resume Builder', short: 'AI Resume builder' }
+        ];
+
+        const wrapper = document.getElementById('projects-wrapper');
+
+        projects.forEach(p => {
+            let projectHtml = `
+                <div class="project-section" id="proj-${p.id}">
+                    <div class="project-header">
+                        <h2>${p.name} (Project)</h2>
+                    </div>
+            `;
+
+            phases.forEach(r => {
+                const promptText = `Build the ${r.title} rules for the ${p.short}. Act as a senior engineer.`;
+
+                projectHtml += `
+                    <div class="step-container">
+                        <div style="display: flex; gap: 40px;">
+                            <div class="primary-workspace" style="flex: 7;">
+                                <h3>Step ${r.step}: ${r.title}</h3>
+                                <p class="text-block">Artifact requirement phase for ${r.title} of ${p.name}.</p>
+                                
+                                <div class="card" style="margin-top: 16px; padding: 16px;">
+                                    <div class="form-group" style="margin-bottom: 0;">
+                                        <label>Artifact URL / Proof</label>
+                                        <div style="display:flex; gap: 16px;">
+                                            <input type="text" class="input-field" placeholder="Paste ${r.title} artifact link...">
+                                            <button class="button button-primary" style="white-space:nowrap;">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="secondary-panel" style="flex: 3;">
+                                <div class="panel-card" style="padding: 16px;">
+                                    <h4 style="margin-bottom: 8px;">AI Prompt</h4>
+                                    <div class="prompt-box" style="margin-top: 0; padding: 8px;">
+                                        <textarea class="input-field" rows="3" readonly>${promptText}</textarea>
+                                        <button class="button button-secondary button-small copy-btn" data-txt="${promptText}">Copy Prompt</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            projectHtml += `</div>`;
+            wrapper.innerHTML += projectHtml;
+        });
+
+        // Copy functionality
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const txt = e.target.getAttribute('data-txt');
+                navigator.clipboard.writeText(txt).then(() => {
+                    const original = e.target.innerText;
+                    e.target.innerText = 'Copied!';
+                    setTimeout(() => e.target.innerText = original, 2000);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

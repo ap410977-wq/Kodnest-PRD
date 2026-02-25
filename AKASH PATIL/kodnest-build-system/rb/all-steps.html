@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Builder - All Steps</title>
+    <link rel="stylesheet" href="../index.css">
+    <style>
+        .step-container {
+            margin-bottom: 64px;
+            padding-bottom: 64px;
+            border-bottom: 2px dashed var(--border-color);
+        }
+
+        .step-container:last-child {
+            border-bottom: none;
+        }
+
+        .prompt-box {
+            margin-top: 16px;
+        }
+
+        textarea.input-field {
+            width: 100%;
+            resize: vertical;
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Top Bar -->
+        <header class="top-bar" style="position: sticky; top: 0; z-index: 100;">
+            <div class="project-name">KodNest Premium Build System</div>
+            <div class="progress-indicator">AI Resume Builder Track — All Prompts</div>
+            <div class="status-badge status-shipped">Master Link</div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content" style="flex-direction: column; max-width: 1200px; margin: 0 auto; width: 100%;">
+
+            <!-- Context Header -->
+            <section class="context-header" style="padding: 24px 0 40px;">
+                <h1>AI Resume Builder Master Track</h1>
+                <p class="subtext">All 8 AI step prompts combined into a single view for quick copying.</p>
+            </section>
+
+            <!-- Steps Generator -->
+            <div id="steps-wrapper"></div>
+
+        </main>
+    </div>
+
+    <script>
+        const routes = [
+            { id: '01-problem', step: 1, title: 'Problem Discovery' },
+            { id: '02-market', step: 2, title: 'Market Validation' },
+            { id: '03-architecture', step: 3, title: 'Architecture' },
+            { id: '04-hld', step: 4, title: 'High Level Design' },
+            { id: '05-lld', step: 5, title: 'Low Level Design' },
+            { id: '06-build', step: 6, title: 'Build Core Engine' },
+            { id: '07-test', step: 7, title: 'Testing' },
+            { id: '08-ship', step: 8, title: 'Ship & Deploy' }
+        ];
+
+        const wrapper = document.getElementById('steps-wrapper');
+
+        routes.forEach(r => {
+            const promptText = \`Build the \${r.title} rules for the AI Resume builder. Act as a senior engineer.\`;
+            
+            const html = \`
+                <div class="step-container" id="\${r.id}">
+                    <div style="display: flex; gap: 40px;">
+                        <div class="primary-workspace" style="flex: 7;">
+                            <h2>Step \${r.step}: \${r.title}</h2>
+                            <p class="text-block">Artifact requirement phase for \${r.title}.</p>
+                            
+                            <div class="card" style="margin-top: 24px;">
+                                <div class="form-group">
+                                    <label>Artifact URL / Proof</label>
+                                    <input type="text" class="input-field" placeholder="Paste \${r.title} artifact link here...">
+                                </div>
+                                <button class="button button-primary">Save Step \${r.step}</button>
+                            </div>
+                        </div>
+
+                        <div class="secondary-panel" style="flex: 3;">
+                            <div class="panel-card">
+                                <h3>AI Prompt Details</h3>
+                                <div class="prompt-box">
+                                    <textarea class="input-field prompt-ta-\${r.step}" rows="4" readonly>\${promptText}</textarea>
+                                    <button class="button button-secondary button-small copy-btn" data-txt="\${promptText}">Copy Prompt</button>
+                                </div>
+                                <div class="action-stack" style="margin-top:24px;">
+                                    <button class="button button-secondary">Build in Lovable</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            \`;
+            wrapper.innerHTML += html;
+        });
+
+        // Copy functionality
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const txt = e.target.getAttribute('data-txt');
+                navigator.clipboard.writeText(txt).then(() => {
+                    const original = e.target.innerText;
+                    e.target.innerText = 'Copied!';
+                    setTimeout(() => e.target.innerText = original, 2000);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

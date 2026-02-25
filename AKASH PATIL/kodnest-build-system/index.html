@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KodNest Premium Build System</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="project-name">KodNest Premium</div>
+            <div class="progress-indicator">Step 1 / 5</div>
+            <div class="status-badge status-in-progress">In Progress</div>
+        </header>
+
+        <!-- Context Header -->
+        <section class="context-header">
+            <h1>Initialize Environment</h1>
+            <p class="subtext">Set up the foundational workspace and verify external dependencies.</p>
+        </section>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Primary Workspace -->
+            <div class="primary-workspace">
+                <div class="card">
+                    <h2>Configuration Details</h2>
+                    <p class="text-block">Define your primary configuration variables here. This space allows for
+                        focused interaction with the product's core capabilities. Keep inputs clean and actionable.</p>
+
+                    <div class="form-group">
+                        <label for="project-name">Project Name</label>
+                        <input type="text" id="project-name" placeholder="Enter project name..." class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="api-key">API Key</label>
+                        <input type="password" id="api-key" placeholder="Enter API key..." class="input-field">
+                    </div>
+                </div>
+
+                <div class="card error-state">
+                    <h3>Connection Failed</h3>
+                    <p>Unable to reach the provisioning server. Check your network settings and try again.</p>
+                    <button class="button button-secondary">Retry Connection</button>
+                </div>
+
+                <div class="card empty-state">
+                    <h3>No Resources Found</h3>
+                    <p>You haven't added any building blocks yet. Let's start by creating your first resource.</p>
+                    <button class="button button-primary">Add Resource</button>
+                </div>
+            </div>
+
+            <!-- Secondary Panel -->
+            <aside class="secondary-panel">
+                <div class="panel-card">
+                    <h3>Step Explanation</h3>
+                    <p>This step configures the base operating parameters for your build instance.</p>
+
+                    <div class="prompt-box">
+                        <div class="prompt-text">Create a standard base template with minimal dependencies.</div>
+                        <button class="button button-secondary button-small">Copy</button>
+                    </div>
+
+                    <div class="action-stack">
+                        <button class="button button-secondary">Build in Lovable</button>
+                        <button class="button button-primary">It Worked</button>
+                        <button class="button button-secondary">Error</button>
+                        <button class="button button-secondary">Add Screenshot</button>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <!-- Proof Footer -->
+        <footer class="proof-footer">
+            <div class="proof-checklist">
+                <div class="proof-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox"> UI Built
+                    </label>
+                    <input type="text" class="proof-input" placeholder="Paste proof URL or screenshot link...">
+                </div>
+                <div class="proof-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox"> Logic Working
+                    </label>
+                    <input type="text" class="proof-input" placeholder="Paste proof URL or screenshot link...">
+                </div>
+                <div class="proof-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox"> Test Passed
+                    </label>
+                    <input type="text" class="proof-input" placeholder="Paste CI/CD pipeline link...">
+                </div>
+                <div class="proof-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox"> Deployed
+                    </label>
+                    <input type="text" class="proof-input" placeholder="Paste live deployment URL...">
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
